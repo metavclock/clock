@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,
+		initial-scale=1.0" />
+
+  <title>metavclock</title>
+
+  <style>
+    body {
+      background: url(https://unsplash.com/photos/Q1p7bh3SHj8/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8NXx8ZWFydGh8fDB8fHx8MTY0MzI5MzQ2MA&force=true&w=1920);
+     font-family: cursive;
+     background: no-repeat;
+    }
+
+
+    #clock {
+      font-size: 150px;
+      color: white;
+      width: 900px;
+      margin: 200px;
+      text-align: center;
+      border: 2px solid rgb(245, 21, 21);
+      border-radius: 20px;
+
+    }
+  </style>
+</head>
+
+<body>
+  <div id="clock">8:10:45</div> metavclock.io 
+
+
+  <script>
+    setInterval(showTime, 1000);
+    function showTime() {
+      let time = new Date();
+      let hour = time.getUTCHours();
+      let min = time.getUTCMinutes();
+      let sec = time.getUTCSeconds();
+      am_pm = "AM";
+
+      if (hour > 12) {
+        hour -= 12;
+        am_pm = " PM";
+      }
+      if (hour == 0) {
+        hr = 12;
+        am_pm = "AM";
+      }
+
+      hour = hour < 10 ? "0" + hour : hour;
+      min = min < 10 ? "0" + min : min;
+      sec = sec < 10 ? "0" + sec : sec;
+
+      let currentTime = hour + ":"
+        + min + ":" + sec + am_pm;
+
+      document.getElementById("clock")
+        .innerHTML = currentTime;
+    }
+
+    showTime();
+  </script>
+</body>
+
+</html>
